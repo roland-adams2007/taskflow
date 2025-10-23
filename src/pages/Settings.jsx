@@ -33,7 +33,6 @@ const Settings = () => {
         logout()
             .then(response => {
                 if (response.status == 200) {
-                    removeCookie("session_meta", { path: "/" });
                     showAlert(response.message || "You have been logged out successfully!", 'success');
                 } else {
                     alert(response.message || "Logout failed. Please try again.");
@@ -46,6 +45,7 @@ const Settings = () => {
             })
             .finally(() => {
                 setLoggingOut(false);
+                removeCookie("session_meta", { path: "/" });
                 window.location.href = '/login';
             });
     };
