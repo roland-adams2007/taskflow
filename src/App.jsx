@@ -7,6 +7,7 @@ import RegisterForm from "./components/auth/RegisterForm";
 import LoginForm from "./components/auth/LoginForm";
 import TeamInvite from "./pages/TeamInvite";
 import PublicRoute from "./routes/PublicRoute"
+import LandingPage from "./pages/LandingPage";
 
 
 function App() {
@@ -30,14 +31,14 @@ function App() {
           }
         />
 
-        <Route path="/" element={<>Hi</>} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/team/invite/:token" element={<TeamInvite />} />
         <Route
           path="/*"
           element={
-              <GlobalProvider>
-                <AppRoutes />
-              </GlobalProvider>
+            <GlobalProvider>
+              <AppRoutes />
+            </GlobalProvider>
           }
         />
       </Routes>
